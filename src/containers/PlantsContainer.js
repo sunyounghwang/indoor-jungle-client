@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPlants } from '../actions/plants';
+import './Plants.css';
 import Plant from '../components/Plant';
 
 class PlantsContainer extends Component {
@@ -10,7 +11,7 @@ class PlantsContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="plants-container">
         <h1>
           Your Plant Collection
         </h1>

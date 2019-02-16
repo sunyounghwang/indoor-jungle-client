@@ -1,0 +1,10 @@
+.plant-card {
+  float: left;
+  width: 30%;
+  margin: 1.5%;
+  background: whitesmoke;
+}
+
+.plants-container {
+  padding: 20px;
+}
