@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPlants } from '../actions/plants';
+import Plant from '../components/Plant';
 
 class PlantsContainer extends Component {
   componentDidMount() {
@@ -13,6 +14,9 @@ class PlantsContainer extends Component {
         <h1>
           Your Plant Collection
         </h1>
+        <div>
+          {this.props.plants.map((plant, i) => <Plant key={i} plant={plant} />)}
+        </div>
       </div>
     );
   }
