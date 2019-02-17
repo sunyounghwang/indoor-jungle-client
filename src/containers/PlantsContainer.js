@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchPlants } from '../actions/plants';
 import './Plants.css';
 import Plant from '../components/Plant';
@@ -10,13 +11,15 @@ class PlantsContainer extends Component {
   }
 
   render() {
+    const { url, plants } = this.props;
+
     return (
       <div className="plants-container">
-        <h1>
-          Your Plant Collection
-        </h1>
+        <h1>Your Plant Collection</h1>
+        <Link to={url}>Add a Plant</Link>
+
         <div>
-          {this.props.plants.map((plant, i) => <Plant key={i} plant={plant} />)}
+          {plants.map((plant, i) => <Plant key={i} plant={plant} />)}
         </div>
       </div>
     );
