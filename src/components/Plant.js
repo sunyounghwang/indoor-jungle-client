@@ -10,9 +10,7 @@ const Plant = ({ plant }) => {
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="text-muted">{type_of}</Card.Subtitle>
-        <Card.Text className="m-2">
-          {location}
-        </Card.Text>
+        <Card.Text className="m-2">{location}</Card.Text>
         <Card.Link href="#">View More</Card.Link>
       </Card.Body>
     </Card>
