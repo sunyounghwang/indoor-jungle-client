@@ -13,12 +13,17 @@ class CreateForm extends Component {
     });
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div className="create-form">
         <h1>Plant Details</h1>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input
               name="name"
@@ -39,7 +44,11 @@ class CreateForm extends Component {
               value={this.state.location}
             />
           </div>
-          <input type="submit" value="Create Plant" className="btn btn-outline-primary" />
+          <input
+            type="submit"
+            value="Create Plant"
+            className="btn btn-outline-primary"
+          />
         </form>
       </div>
     );
