@@ -2,14 +2,18 @@ import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
+const activeStyle = {
+  textDecoration: 'underline'
+};
+
 const NavBar = () => {
   return (
     <React.Fragment>
       <Navbar expand="sm">
         <Navbar.Brand>Indoor Jungle</Navbar.Brand>
         <Navbar.Collapse>
-          <NavLink exact to="/">Home</NavLink>
-          <NavLink to="/plants">Plants</NavLink>
+          <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
+          <NavLink to="/plants" activeStyle={activeStyle}>Plants</NavLink>
         </Navbar.Collapse>
       </Navbar>
     </React.Fragment>
