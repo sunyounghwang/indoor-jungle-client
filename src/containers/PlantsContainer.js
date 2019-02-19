@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPlants } from '../actions/plants';
 import './Plants.css';
-import Plant from '../components/Plant';
+import PlantCard from '../components/PlantCard';
 
 class PlantsContainer extends Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ class PlantsContainer extends Component {
         <Link to={url}>Add a Plant</Link>
 
         <div>
-          {plants.map((plant, i) => <Plant key={i} plant={plant} />)}
+          {plants.map((plant, i) => <PlantCard key={i} plant={plant} />)}
         </div>
       </div>
     );
