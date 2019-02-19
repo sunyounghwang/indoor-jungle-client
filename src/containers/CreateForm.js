@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createPlant } from '../actions/plants';
 
 class CreateForm extends Component {
   state = {
@@ -15,7 +17,7 @@ class CreateForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createPlant(this.state);
   }
 
   render() {
@@ -55,4 +57,12 @@ class CreateForm extends Component {
   }
 }
 
-export default CreateForm;
+const mapStateToProps = state => {
+  return { plants: state.plants };
+}
+
+const mapDispatchToProps = dispatch => {
+  return { createPlant: data => dispatch(createPlant(data)) };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);
