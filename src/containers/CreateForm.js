@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createPlant } from '../actions/plants';
 
 class CreateForm extends Component {
@@ -18,6 +19,12 @@ class CreateForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.createPlant(this.state);
+    this.setState({
+      name: "",
+      type_of: "",
+      location: ""
+    });
+    this.props.history.push('/plants')
   }
 
   render() {
