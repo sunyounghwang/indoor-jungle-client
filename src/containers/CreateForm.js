@@ -18,6 +18,12 @@ class CreateForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.createPlant(this.state);
+    this.setState({
+      name: "",
+      type_of: "",
+      location: ""
+    });
+    this.props.history.push('/plants')
   }
 
   render() {
