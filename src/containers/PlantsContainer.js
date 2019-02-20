@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPlants } from '../actions/plants';
+import { fetchPlants, destroyPlant } from '../actions/plants';
 import './Plants.css';
 import PlantCard from '../components/PlantCard';
 
@@ -11,7 +11,7 @@ class PlantsContainer extends Component {
   }
 
   render() {
-    const { url, plants } = this.props;
+    const { url, plants, destroyPlant } = this.props;
 
     return (
       <div className="plants-container">
@@ -19,7 +19,13 @@ class PlantsContainer extends Component {
         <Link to={url}>Add a Plant</Link>
 
         <div>
-          {plants.map((plant, i) => <PlantCard key={i} plant={plant} />)}
+          {plants.map((plant, i) =>
+            <PlantCard
+              key={i}
+              plant={plant}
+              destroyPlant={destroyPlant}
+            />
+          )}
         </div>
       </div>
     );
@@ -31,7 +37,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { fetchPlants: () => dispatch(fetchPlants()) };
+  return {
+    fetchPlants: () => dispatch(fetchPlants()),
+    destroyPlant: id => dispatch(destroyPlant(id))
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlantsContainer);
