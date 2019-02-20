@@ -6,7 +6,8 @@ class CreateForm extends Component {
   state = {
     name: "",
     type_of: "",
-    location: ""
+    location: "",
+    img_url: ""
   };
 
   handleChange = e => {
@@ -21,9 +22,10 @@ class CreateForm extends Component {
     this.setState({
       name: "",
       type_of: "",
-      location: ""
+      location: "",
+      img_url: "",
     });
-    this.props.history.push('/plants')
+    this.props.history.push('/plants');
   }
 
   render() {
@@ -50,6 +52,12 @@ class CreateForm extends Component {
               placeholder="Location in Home"
               onChange={this.handleChange}
               value={this.state.location}
+            />
+            <input
+              name="img_url"
+              placeholder="Image URL (optional)"
+              onChange={this.handleChange}
+              value={this.state.img_url}
             />
           </div>
           <input
