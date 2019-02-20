@@ -25,3 +25,8 @@ input {
   width: 50%;
   margin: 5px;
 }
+
+.navbar-text {
+  font-size: 10px;
+  white-space: nowrap;
+}

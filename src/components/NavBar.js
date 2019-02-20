@@ -15,6 +15,9 @@ const NavBar = () => {
           <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
           <NavLink to="/plants" activeStyle={activeStyle}>Plants</NavLink>
         </Navbar.Collapse>
+        <Navbar.Text>
+          Favicon by <a href="https://icons8.com/">Icons8</a>
+        </Navbar.Text>
       </Navbar>
     </React.Fragment>
   );
