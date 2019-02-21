@@ -21,7 +21,7 @@ class PlantsContainer extends Component {
         />
       );
 
-    if (plants.length == 0) {
+    if (plants.length === 0) {
       plantsDisplay = <p>You have no plants... yet!</p>;
     }
 
