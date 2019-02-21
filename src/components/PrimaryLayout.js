@@ -9,8 +9,8 @@ const PrimaryLayout = ({ match }) => (
     <NavBar />
     <main>
       <Switch>
-        <Route exact path="/" render={Home} />
-        <Route path="/plants" render={PlantSubLayout} />
+        <Route exact path="/" component={Home} />
+        <Route path="/plants" component={PlantSubLayout} />
         <Redirect to="/" />
       </Switch>
     </main>
