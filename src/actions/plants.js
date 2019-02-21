@@ -12,7 +12,7 @@ export const destroyPlantSuccess = id => ({
 
 export const fetchPlants = () => {
   return dispatch => {
-    fetch(`http://localhost:3001/api/plants`)
+    fetch(`/api/plants`)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -37,7 +37,7 @@ export const createPlant = plant => {
   };
 
   return dispatch => {
-    fetch(`http://localhost:3001/api/plants`, data)
+    fetch(`/api/plants`, data)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -61,7 +61,7 @@ export const destroyPlant = id => {
   }
 
   return dispatch => {
-    fetch(`http://localhost:3001/api/plants/${id}`, data)
+    fetch(`/api/plants/${id}`, data)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
