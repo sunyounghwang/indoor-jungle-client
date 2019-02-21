@@ -37,3 +37,7 @@ input {
   background-repeat: no-repeat;
   color: white;
 }
+
+.home li {
+  list-style-type: none;
+}
