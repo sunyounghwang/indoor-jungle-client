@@ -13,20 +13,24 @@ class PlantsContainer extends Component {
   render() {
     const { url, plants, destroyPlant } = this.props;
 
+    let plantsDisplay = plants.map((plant, i) =>
+        <PlantCard
+          key={i}
+          plant={plant}
+          destroyPlant={destroyPlant}
+        />
+      );
+
+    if (plants.length == 0) {
+      plantsDisplay = <p>You have no plants... yet!</p>;
+    }
+
     return (
       <div className="plants-container">
         <h1>Your Plant Collection</h1>
         <Link to={url}>Add a Plant</Link>
 
-        <div>
-          {plants.map((plant, i) =>
-            <PlantCard
-              key={i}
-              plant={plant}
-              destroyPlant={destroyPlant}
-            />
-          )}
-        </div>
+        <div>{plantsDisplay}</div>
       </div>
     );
   }
