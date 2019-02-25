@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import Home from './Home';
 import PlantSubLayout from './PlantSubLayout';
 
-const PrimaryLayout = ({ match }) => (
+const PrimaryLayout = () => (
   <div className="primary-layout">
     <NavBar />
     <main>
