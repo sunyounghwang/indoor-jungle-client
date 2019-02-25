@@ -10,7 +10,7 @@ const PlantCard = ({ plant, destroyPlant }) => {
   const handleClick = e => {
     e.preventDefault();
     destroyPlant(id);
-  }
+  };
 
   return (
     <Card className="plant-card">

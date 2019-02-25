@@ -38,13 +38,13 @@ class PlantsContainer extends Component {
 
 const mapStateToProps = state => {
   return { plants: state.plants };
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchPlants: () => dispatch(fetchPlants()),
     destroyPlant: id => dispatch(destroyPlant(id))
   };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlantsContainer);

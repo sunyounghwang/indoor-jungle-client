@@ -21,6 +21,6 @@ const NavBar = () => {
       </Navbar>
     </React.Fragment>
   );
-}
+};
 
 export default NavBar;
