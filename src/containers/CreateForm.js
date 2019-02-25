@@ -71,12 +71,8 @@ class CreateForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { plants: state.plants };
-};
-
 const mapDispatchToProps = dispatch => {
   return { createPlant: data => dispatch(createPlant(data)) };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);
+export default connect(null, mapDispatchToProps)(CreateForm);
