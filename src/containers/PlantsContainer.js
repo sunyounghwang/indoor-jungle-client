@@ -7,7 +7,9 @@ import PlantCard from '../components/PlantCard';
 
 class PlantsContainer extends Component {
   componentDidMount() {
-    this.props.fetchPlants();
+    if (this.props.plants.length === 0) {
+      this.props.fetchPlants();
+    }
   }
 
   render() {
