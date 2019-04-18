@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Formik, FormikProps, Form, Field } from 'formik';
+import { Formik, FormikProps, Form, Field, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 import { connect } from 'react-redux';
 import { createPlant } from '../actions/plants';
 
@@ -20,13 +21,20 @@ class CreateForm extends Component {
           img_url: ""
         }}
         onSubmit={this.handleSubmit}
+        validationSchema={formSchema}
         render={(formProps: FormikProps) => {
           return (
             <Form>
               <div>
                 <Field name="name" placeholder="Name" />
+                <ErrorMessage name="name" component="div" />
+
                 <Field name="type_of" placeholder="Type" />
+                <ErrorMessage name="type_of" component="div" />
+
                 <Field name="location" placeholder="Location in Home" />
+                <ErrorMessage name="location" component="div" />
+
                 <Field name="img_url" placeholder="Image URL (optional)" />
               </div>
               <button
@@ -42,6 +50,18 @@ class CreateForm extends Component {
     );
   }
 }
+
+const formSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required(),
+  type_of: yup
+    .string()
+    .required("type is a required field"),
+  location: yup
+    .string()
+    .required()
+});
 
 const mapDispatchToProps = dispatch => {
   return { createPlant: data => dispatch(createPlant(data)) };
