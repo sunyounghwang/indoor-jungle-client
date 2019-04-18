@@ -54,13 +54,22 @@ class CreateForm extends Component {
 const formSchema = yup.object().shape({
   name: yup
     .string()
-    .required(),
+    .required()
+    .test("is-blank", "${path} can't be blank", value => {
+      return /^\s*$/.test(value) ? false : true;
+    }),
   type_of: yup
     .string()
-    .required("type is a required field"),
+    .required("type is a required field")
+    .test("is-blank", "type can't be blank", value => {
+      return /^\s*$/.test(value) ? false : true;
+    }),
   location: yup
     .string()
     .required()
+    .test("is-blank", "${path} can't be blank", value => {
+      return /^\s*$/.test(value) ? false : true;
+    })
 });
 
 const mapDispatchToProps = dispatch => {
