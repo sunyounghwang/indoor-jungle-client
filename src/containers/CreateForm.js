@@ -27,13 +27,13 @@ class CreateForm extends Component {
             <Form>
               <div>
                 <Field name="name" placeholder="Name" />
-                <ErrorMessage name="name" component="div" />
+                <ErrorMessage name="name" className="error-message" component="div" />
 
                 <Field name="type_of" placeholder="Type" />
-                <ErrorMessage name="type_of" component="div" />
+                <ErrorMessage name="type_of" className="error-message" component="div" />
 
                 <Field name="location" placeholder="Location in Home" />
-                <ErrorMessage name="location" component="div" />
+                <ErrorMessage name="location" className="error-message" component="div" />
 
                 <Field name="img_url" placeholder="Image URL (optional)" />
               </div>

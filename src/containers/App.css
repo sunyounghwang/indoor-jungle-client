@@ -26,6 +26,10 @@ input {
   margin: 5px;
 }
 
+.error-message {
+  color: red;
+}
+
 .navbar-text {
   font-size: 10px;
   white-space: nowrap;
