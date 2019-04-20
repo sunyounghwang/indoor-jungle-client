@@ -1,8 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PlantsContainer from '../containers/PlantsContainer';
-import CreateForm from '../containers/CreateForm';
-import EditForm from '../containers/EditForm';
+import PlantForm from '../containers/PlantForm';
 
 const PlantSubLayout = ({ match }) => (
   <div className="plant-sub-layout">
@@ -14,8 +13,8 @@ const PlantSubLayout = ({ match }) => (
           newURL={`${match.url}/new`}
           editURL={`${match.url}/:id/edit`} />}
       />
-      <Route path={`${match.path}/new`} exact component={CreateForm} />
-      <Route path={`${match.path}/:id/edit`} exact component={EditForm} />
+      <Route path={`${match.path}/new`} exact render={routeProps => <PlantForm {...routeProps} formType={"create"} />} />
+      <Route path={`${match.path}/:id/edit`} exact render={routeProps => <PlantForm {...routeProps} formType={"edit"} />} />
       <Redirect to={match.path} />
     </Switch>
   </div>
