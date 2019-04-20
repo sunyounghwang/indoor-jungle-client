@@ -26,32 +26,34 @@ class EditForm extends Component {
         validationSchema={formSchema}
         render={(formProps: FormikProps) => {
           return (
-            <Form>
-              <div>
-                <label htmlFor="name">Name</label>
-                <Field name="name" />
-                <ErrorMessage name="name" className="error-message" component="div" />
-              </div>
-              <div>
-                <label htmlFor="type_of">Plant Type</label>
-                <Field name="type_of" />
-                <ErrorMessage name="type_of" className="error-message" component="div" />
-              </div>
-              <div>
-                <label htmlFor="location">Location</label>
-                <Field name="location" />
-                <ErrorMessage name="location" className="error-message" component="div" />
-              </div>
-              <div>
-                <label htmlFor="img_url">Image URL (optional)</label>
-                <Field name="img_url" />
-              </div>
-              <button type="submit"
-                disabled={formProps.isSubmitting}
-                className="btn btn-outline-primary">
-                Edit Plant
-              </button>
-            </Form>
+            <div className="form-container">
+              <Form>
+                <div className="form-group row">
+                  <label htmlFor="name">Name</label>
+                  <Field className="form-control" name="name" />
+                  <ErrorMessage name="name" className="error-message" component="div" />
+                </div>
+                <div className="form-group row">
+                  <label htmlFor="type_of">Plant Type</label>
+                  <Field className="form-control" name="type_of" />
+                  <ErrorMessage name="type_of" className="error-message" component="div" />
+                </div>
+                <div className="form-group row">
+                  <label htmlFor="location">Location</label>
+                  <Field className="form-control" name="location" />
+                  <ErrorMessage name="location" className="error-message" component="div" />
+                </div>
+                <div className="form-group row">
+                  <label htmlFor="img_url">Image URL (optional)</label>
+                  <Field className="form-control" name="img_url" />
+                </div>
+                <button type="submit"
+                  disabled={formProps.isSubmitting}
+                  className="btn btn-outline-primary">
+                  Edit Plant
+                </button>
+              </Form>
+            </div>
           );
         }}
       />

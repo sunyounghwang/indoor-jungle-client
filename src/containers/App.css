@@ -21,9 +21,9 @@ nav a {
   margin: 1.5%;
 }
 
-input {
+.form-container {
   width: 50%;
-  margin: 5px;
+  margin: 0 auto 0 auto;
 }
 
 .error-message {
