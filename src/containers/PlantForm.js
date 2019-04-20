@@ -22,6 +22,7 @@ class PlantForm extends Component {
     };
     initialValues = formType === "edit" ? plant : initialValues;
     const heading = formType === "edit" ? `Edit ${plant.name || "a Plant"}` : "Add a Plant";
+    const buttonText = formType === "edit" ? "Edit Plant" : "Add Plant";
 
     return (
       <Formik
@@ -55,7 +56,7 @@ class PlantForm extends Component {
                 <button type="submit"
                   disabled={formProps.isSubmitting}
                   className="btn btn-outline-primary">
-                  Edit Plant
+                  {buttonText}
                 </button>
               </Form>
             </div>
