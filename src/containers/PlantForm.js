@@ -2,26 +2,29 @@ import React, { Component } from 'react';
 import { Formik, FormikProps, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { connect } from 'react-redux';
-import { updatePlant } from '../actions/plants';
+import { createPlant, updatePlant } from '../actions/plants';
 
 class PlantForm extends Component {
   handleSubmit = (values, { setSubmitting }) => {
-    this.props.updatePlant(values, this.props.match.params.id);
+    const { formType, createPlant, updatePlant, match } = this.props;
+    formType === "create" ? createPlant(values) : updatePlant(values, match.params.id);
     setSubmitting(false);
     this.props.history.push('/plants');
   }
 
   render() {
-    const { name, type_of, location, img_url } = this.props.plant;
+    const { formType, plant } = this.props;
+    let initialValues = {
+      name: "",
+      type_of: "",
+      location: "",
+      img_url: ""
+    };
+    initialValues = formType === "edit" ? plant : initialValues;
 
     return (
       <Formik
-        initialValues={{
-          name: name,
-          type_of: type_of,
-          location: location,
-          img_url: img_url
-        }}
+        initialValues={initialValues}
         onSubmit={this.handleSubmit}
         validationSchema={formSchema}
         render={(formProps: FormikProps) => {
@@ -88,7 +91,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return { updatePlant: (values, id) => dispatch(updatePlant(values, id)) };
+  return {
+    createPlant: values => dispatch(createPlant(values)),
+    updatePlant: (values, id) => dispatch(updatePlant(values, id))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlantForm);
