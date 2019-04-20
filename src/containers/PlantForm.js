@@ -21,6 +21,7 @@ class PlantForm extends Component {
       img_url: ""
     };
     initialValues = formType === "edit" ? plant : initialValues;
+    const heading = formType === "edit" ? `Edit ${plant.name || "a Plant"}` : "Add a Plant";
 
     return (
       <Formik
@@ -30,6 +31,7 @@ class PlantForm extends Component {
         render={(formProps: FormikProps) => {
           return (
             <div className="form-container">
+              <h1>{heading}</h1>
               <Form>
                 <div className="form-group row">
                   <label htmlFor="name">Name</label>
