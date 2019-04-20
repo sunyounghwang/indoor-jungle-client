@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { connect } from 'react-redux';
 import { updatePlant } from '../actions/plants';
 
-class EditForm extends Component {
+class PlantForm extends Component {
   handleSubmit = (values, { setSubmitting }) => {
     this.props.updatePlant(values, this.props.match.params.id);
     setSubmitting(false);
@@ -13,7 +13,7 @@ class EditForm extends Component {
 
   render() {
     const { name, type_of, location, img_url } = this.props.plant;
-    
+
     return (
       <Formik
         initialValues={{
@@ -91,4 +91,4 @@ const mapDispatchToProps = dispatch => {
   return { updatePlant: (values, id) => dispatch(updatePlant(values, id)) };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditForm);
+export default connect(mapStateToProps, mapDispatchToProps)(PlantForm);
