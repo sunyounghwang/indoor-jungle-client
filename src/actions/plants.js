@@ -30,14 +30,14 @@ export const fetchPlants = () => {
   };
 };
 
-export const createPlant = plant => {
+export const createPlant = values => {
   const data = {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(plant)
+    body: JSON.stringify(values)
   };
 
   return dispatch => {

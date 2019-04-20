@@ -73,7 +73,7 @@ const formSchema = yup.object().shape({
 });
 
 const mapDispatchToProps = dispatch => {
-  return { createPlant: data => dispatch(createPlant(data)) };
+  return { createPlant: values => dispatch(createPlant(values)) };
 };
 
 export default connect(null, mapDispatchToProps)(CreateForm);
