@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
 const PlantCard = ({ plant, destroyPlant }) => {
@@ -19,6 +20,7 @@ const PlantCard = ({ plant, destroyPlant }) => {
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="text-muted">{type_of}</Card.Subtitle>
         <Card.Text className="m-2">{location}</Card.Text>
+        <Link className="card-link" to={`/plants/${id}/edit`}>Edit</Link>
         <Card.Link href="#" onClick={handleClick}>Delete</Card.Link>
       </Card.Body>
     </Card>

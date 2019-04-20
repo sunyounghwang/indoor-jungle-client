@@ -13,12 +13,13 @@ class PlantsContainer extends Component {
   }
 
   render() {
-    const { url, plants, destroyPlant } = this.props;
+    const { newURL, editURL, plants, destroyPlant } = this.props;
 
     let plantsDisplay = plants.map((plant, i) =>
         <PlantCard
           key={i}
           plant={plant}
+          editURL={editURL}
           destroyPlant={destroyPlant}
         />
       );
@@ -30,8 +31,7 @@ class PlantsContainer extends Component {
     return (
       <div className="plants-container">
         <h1>Your Plant Collection</h1>
-        <Link to={url}>Add a Plant</Link>
-
+        <Link to={newURL}>Add a Plant</Link>
         <div>{plantsDisplay}</div>
       </div>
     );
