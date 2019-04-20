@@ -85,9 +85,9 @@ export const destroyPlant = id => {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     }
-  }
+  };
 
   return dispatch => {
     fetch(`/api/plants/${id}`, data)
@@ -102,4 +102,4 @@ export const destroyPlant = id => {
       .then(data => dispatch(destroyPlantSuccess(data.id)))
       .catch(error => console.log('There was an error: ' + error.message));
   };
-}
+};
