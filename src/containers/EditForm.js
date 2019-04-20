@@ -12,13 +12,15 @@ class EditForm extends Component {
   }
 
   render() {
+    const { name, type_of, location, img_url } = this.props.plant;
+    
     return (
       <Formik
         initialValues={{
-          name: "",
-          type_of: "",
-          location: "",
-          img_url: ""
+          name: name,
+          type_of: type_of,
+          location: location,
+          img_url: img_url
         }}
         onSubmit={this.handleSubmit}
         validationSchema={formSchema}
@@ -78,8 +80,13 @@ const formSchema = yup.object().shape({
     })
 });
 
+const mapStateToProps = (state, ownProps) => {
+  const plant = state.plants.find(plant => plant.id === +ownProps.match.params.id);
+  return plant ? { plant: plant } : { plant: {} };
+};
+
 const mapDispatchToProps = dispatch => {
   return { updatePlant: (values, id) => dispatch(updatePlant(values, id)) };
 };
 
-export default connect(null, mapDispatchToProps)(EditForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditForm);
